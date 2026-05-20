@@ -1,0 +1,70 @@
+================================================================================
+PROJECT SUMMARY: PlaywrightWithPython
+================================================================================
+
+PROJECT OVERVIEW:
+This is a Python-based UI automation testing project using Playwright browser
+automation framework. It tests web applications with pytest and follows the
+Page Object Model (POM) design pattern.
+
+KEY TECHNOLOGIES:
+- Python 3.13
+- Playwright (sync_api) - Browser automation
+- PyTest - Test framework
+- pytest-html - HTML report generation
+
+PROJECT STRUCTURE:
+├── pom/                    - Page Object Model classes
+│   ├── home_page_element.py    - Login page elements (HomePage)
+│   ├── contact_us_page.py      - Contact form page (ContactUsPage)
+│   └── swag_element.py         - Swag Labs page elements (SwagPage)
+├── tests_ui_layout/        - Test files
+│   ├── test_home_page_layout.py    - Login & logout tests (integration, regression)
+│   ├── test_contact_us_from.py     - Contact form submission test
+│   └── test_2.py               - Login test with footer verification (smoke, regression)
+├── test1.py               - Standalone Playwright script
+├── pytest.ini             - Pytest configuration with markers and HTML report settings
+└── logs/                  - Test execution logs and JSON reports
+
+TEST TARGETS:
+1. Sauce Labs Demo (https://www.saucedemo.com/)
+   - User login with credentials: standard_user / secret_sauce
+   - Footer text verification
+   - Logout functionality
+
+2. Automation Testing Contact Form (https://www.automationtesting.co.uk/contactForm.html)
+   - Contact form submission with name, email, and message
+
+PYTEST MARKERS CONFIGURED:
+- smoke: Quick smoke tests
+- regression: Regression test suite
+- integration: Integration tests
+
+CAPABILITIES:
+- CLI commands for running tests by marker (smoke, regression, combined)
+- Headless browser automation with 500ms slow-motion for visibility
+- Network idle state waits for page load completion
+- Timeout configurations (1000-15000ms)
+- Browser context management
+- JSON test reports stored in logs/test-reports/json/
+- HTML test reports (requires pytest-html plugin)
+
+CURRENT CONFIGURATION ISSUE RESOLVED:
+- Fixed pytest.ini syntax error (addopts was incorrectly indented)
+- Installed pytest-html plugin to enable HTML report generation
+- HTML reports now output to: reports/report.html
+
+TEST EXECUTION:
+Run specific test markers:
+  pytest -m smoke
+  pytest -m "smoke or regression"
+  pytest -m integration
+
+Run single file:
+  pytest tests_ui_layout/test_home_page_layout.py
+
+Re-run failed tests:
+  pytest --lf
+
+================================================================================
+

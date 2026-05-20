@@ -1,0 +1,111 @@
+Running Tests by Marker via CLI:
+pytest -m smoke
+pytest -m "smoke or regression"
+pytest -m "smoke and regression"
+pytest -m "not smoke"
+pytest --markers
+
+
+CLI - Command Line Interface:
+
+Stop at first failure:
+pytest -x
+
+Allow max failure before stoppong:
+pytest --maxfail=2
+
+Run single test: function dhore run:
+pytest -k test_func_name
+
+Run a single file:
+pytest test_file.py
+pytest tests_ui_layout\test_home_page_layout.py
+
+Re-run last failed test only:
+pytest --lf
+
+Re-run all tests, starting with last failed:
+pytest --ff
+
+You can combine CLI option together:
+pytest --ff -x -v
+
+
+allure-pytest setup:
+pip install allure-pytest
+pip show allure-pytest
+
+Run:
+pytest --alluredir=./allure-results
+pytest -m smoke --alluredir=./allure-results   // single file
+
+Report open:
+allure serve allure-results
+
+static report generate:
+allure generate allure-results -o allure-report --clean
+allure open allure-report
+
+
+HTML1 Report:
+pip install pytest-reporter-html1
+pytest --template=html1/index.html --report=report.html
+pytest -m smoke --template=html1/index.html --report=htmlreport/report.html
+
+
+parallel execution:
+pip install pytest-xdist
+pytest -n auto
+pytest -n 2
+
+
+pytest --maxfail=2 -m regression --template=html1/index.html --report=htmlreport/regression_test_report.html
+
+
+CLI arguments:
+--headed: Run tests in headed mode (default: headless).
+pytest --headed
+pytest -m smoke --headed
+pytest -m smoke --headed --slowmo=500
+pytest -k test_about_us_scrtion_verbiage2 --headed
+pytest -k test_about_us_scrtion_verbiage2 --headed --slowmo=500
+pytest -k test_about_us_scrtion_verbiage2 --headed --slowmo=500 --tracing=on
+pytest -k test_about_us_scrtion_verbiage2 --headed --slowmo=500 --tracing=on --video=on
+pytest -k test_about_us_scrtion_verbiage2 --headed --slowmo=500 --tracing=on --video=on --screenshot=on
+pytest -k test_about_us_scrtion_verbiage2 --headed --slowmo=500 --tracing=on --video=on --screenshot=on --full-page-screenshot=on
+pytest -k test_about_us_scrtion_verbiage2 --headed --slowmo=500 --tracing=on --video=on --screenshot=on --full-page-screenshot=on --output=test-results
+pytest -k test_about_us_scrtion_verbiage2 --headed --slowmo=500 --tracing=on --video=on --screenshot=on --full-page-screenshot=on --output=test-results --browser=chromium
+pytest -k test_about_us_scrtion_verbiage2 --headed --slowmo=500 --tracing=on --video=on --screenshot=on --full-page-screenshot=on --output=test-results --browser=chromium --browser=firefox --browser=webkit
+pytest -m smoke --headed --slowmo=500 --tracing=on --video=on --screenshot=on --full-page-screenshot=on --output=test-results --browser=chromium --browser=firefox --browser=webkit
+
+--browser: Run tests in a different browser chromium, firefox, or webkit. It can be specified multiple times (default: chromium).
+pytest --headed --browser=chromium --browser=firefox --browser=webkit
+
+--browser-channel Browser channel to be used.
+pytest --headed --browser-channel=chrome
+pytest --headed --browser=chromium --browser-channel=chrome
+
+--slowmo Slows down Playwright operations by the specified amount of milliseconds. Useful so that you can see what is going on (default: 0).
+pytest -m smoke --headed --slowmo=500
+pytest --headed --browser=firefox --slowmo=500
+
+--device Device to be emulated.
+pytest --headed --device="iPhone 12"
+pytest -m smoke --headed --device="iPhone 12" --video=on --screenshot=on --output=test-results
+
+--output Directory for artifacts produced by tests (default: test-results).
+
+--tracing Whether to record a trace for each test. on, off, or retain-on-failure (default: off).
+pytest --headed --tracing=on
+
+--video Whether to record video for each test. on, off, or retain-on-failure (default: off).
+pytest --headed --video=on
+pytest -m smoke --headed --device="iPhone 12" --video=on
+
+--screenshot Whether to automatically capture a screenshot after each test. on, off, or only-on-failure (default: off).
+pytest --headed --screenshot=on
+pytest -m smoke --headed --screenshot=on
+pytest -m smoke --headed --screenshot=only-on-failure
+
+--full-page-screenshot Whether to take a full page screenshot on failure. By default, only the viewport is captured. Requires --screenshot to be enabled (default: off).
+pytest --headed --screenshot=on --full-page-screenshot=on

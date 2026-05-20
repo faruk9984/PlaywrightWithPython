@@ -1,0 +1,2 @@
+Footer text is correct and visible.
+Yay!
