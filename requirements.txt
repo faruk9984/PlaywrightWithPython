@@ -1,0 +1,6 @@
+pytest
+pytest-playwright
+playwright
+pytest-html
+# Optional: if you used html-reporter previously and want to avoid conflicts, don't install it.
+# html-reporter (conflicting plugin)
