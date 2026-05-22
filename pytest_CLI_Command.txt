@@ -109,3 +109,4 @@ pytest -m smoke --headed --screenshot=only-on-failure
 
 --full-page-screenshot Whether to take a full page screenshot on failure. By default, only the viewport is captured. Requires --screenshot to be enabled (default: off).
 pytest --headed --screenshot=on --full-page-screenshot=on
+pytest -m smoke --headed --screenshot=on --full-page-screenshot=on --base-url=https://www.saucedemo.com/

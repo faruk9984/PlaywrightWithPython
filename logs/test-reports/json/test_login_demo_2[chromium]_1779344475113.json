@@ -1,0 +1,13 @@
+{
+  "steps": [
+    {
+      "startTime": 1779344480450,
+      "endTime": 1779344480452,
+      "name": "test_login_demo_2[chromium]",
+      "status": "PASSED",
+      "events": []
+    }
+  ],
+  "testStatus": "PASSED",
+  "className": "tests_ui_layout.test_2"
+}

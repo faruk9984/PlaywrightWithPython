@@ -1,0 +1,17 @@
+{
+  "steps": [
+    {
+      "startTime": 1779343883454,
+      "endTime": 1779343888478,
+      "name": "test_login_demo_2[chromium]",
+      "status": "FAILED",
+      "events": [],
+      "failureMessage": "AssertionError: Locator expected to have text 'Swag Labs'\nActual value: None\nError: element(s) not found \nCall log:\n  - Expect \"to_have_text\" with timeout 5000ms\n  - waiting for locator(\"div.login_logo\")",
+      "stackTrace": "login_set_up = <Page url='https://www.saucedemo.com/inventory.html'>\n\n    @pytest.mark.smoke2\n    def test_login_demo_2(login_set_up) -> None:\n        page = login_set_up\n>       expect(page.locator(\"div.login_logo\")).to_have_text(\"Swag Labs\")\nE       AssertionError: Locator expected to have text 'Swag Labs'\nE       Actual value: None\nE       Error: element(s) not found \nE       Call log:\nE         - Expect \"to_have_text\" with timeout 5000ms\nE         - waiting for locator(\"div.login_logo\")\n\ntests_ui_layout\\test_2.py:19: AssertionError"
+    }
+  ],
+  "testStatus": "FAILED",
+  "className": "tests_ui_layout.test_2",
+  "failureMessage": "AssertionError: Locator expected to have text 'Swag Labs'\nActual value: None\nError: element(s) not found \nCall log:\n  - Expect \"to_have_text\" with timeout 5000ms\n  - waiting for locator(\"div.login_logo\")",
+  "stackTrace": "login_set_up = <Page url='https://www.saucedemo.com/inventory.html'>\n\n    @pytest.mark.smoke2\n    def test_login_demo_2(login_set_up) -> None:\n        page = login_set_up\n>       expect(page.locator(\"div.login_logo\")).to_have_text(\"Swag Labs\")\nE       AssertionError: Locator expected to have text 'Swag Labs'\nE       Actual value: None\nE       Error: element(s) not found \nE       Call log:\nE         - Expect \"to_have_text\" with timeout 5000ms\nE         - waiting for locator(\"div.login_logo\")\n\ntests_ui_layout\\test_2.py:19: AssertionError"
+}
