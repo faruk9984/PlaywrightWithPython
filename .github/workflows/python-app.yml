@@ -31,12 +31,6 @@ jobs:
     - name: Install Playwright browsers
       run: |
         python -m playwright install
-    - name: HTML Install dependencies
-      run: |
-        python -m pip install pytest-html
-    - name: Generate HTML report
-      run: |
-        python -m pip install pytest-html-reporter
     - name: Lint with flake8
       run: |
         # stop the build if there are Python syntax errors or undefined names
