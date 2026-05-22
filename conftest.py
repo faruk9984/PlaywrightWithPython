@@ -4,8 +4,6 @@ import pytest
 from playwright.sync_api import Playwright, expect
 from requests import session
 
-import utils.secret_config
-
 
 @pytest.fixture(scope="session")
 # @pytest.fixture(scope="function")
