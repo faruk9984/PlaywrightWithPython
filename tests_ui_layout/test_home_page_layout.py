@@ -1,3 +1,5 @@
+import os
+
 from playwright.sync_api import Playwright, sync_playwright, expect
 from pytest_playwright.pytest_playwright import context
 
@@ -19,7 +21,8 @@ def test_about_us_scrtion_verbiage(set_up, username, password) -> None:
     # page.wait_for_load_state("networkidle")
     home_page=HomePage(page)
     home_page.username.fill(username)
-    home_page.password.fill(utils.secret_config.PASSWORD)
+    # home_page.password.fill(utils.secret_config.PASSWORD)
+    home_page.password.fill(os.environ['PASSWORD'])
     home_page.login_button.click(timeout=1000)
     expect(home_page.text_verify).to_be_visible()
 
@@ -53,7 +56,8 @@ def test_about_us_scrtion_verbiage2(set_up, username, password)-> None:
     # page.wait_for_load_state("networkidle")
     home_page = HomePage(page)
     home_page.username.fill(username)
-    home_page.password.fill(utils.secret_config.PASSWORD)
+    # home_page.password.fill(utils.secret_config.PASSWORD)
+    home_page.password.fill(os.environ['PASSWORD'])
     home_page.login_button.click(timeout=1000)
     expect(home_page.text_verify).to_be_visible()
 
