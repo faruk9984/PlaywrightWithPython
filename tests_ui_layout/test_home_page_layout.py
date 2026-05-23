@@ -7,13 +7,15 @@ from pom.home_page_element import HomePage
 from pom.swag_element import SwagPage
 import pytest
 
-from utils.secret_config import PASSWORD
 
-try:
-    PASSWORD = os.environ['PASSWORD']
-except KeyError:
-        import utils.secret_config
-        PASSWORD = utils.secret_config.PASSWORD
+PASSWORD = os.environ['PASSWORD']
+# PASSWORD = os.getenv("PASSWORD")
+
+# try:
+#     PASSWORD = os.environ['PASSWORD']
+# except KeyError:
+#         import utils.secret_config
+#         PASSWORD = utils.secret_config.PASSWORD
 
 
 
