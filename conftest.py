@@ -8,8 +8,8 @@ PASSWORD = os.environ['PASSWORD']
 
 
 
-@pytest.fixture(scope="session")
-# @pytest.fixture(scope="function")
+# @pytest.fixture(scope="session")
+@pytest.fixture(scope="function")
 def set_up(browser):
     # browser = playwright.chromium.launch(headless=False, slow_mo=500)
     context = browser.new_context()
@@ -23,8 +23,8 @@ def set_up(browser):
 
 
 
-@pytest.fixture(scope="session")
-# @pytest.fixture(scope="function")
+# @pytest.fixture(scope="session")
+@pytest.fixture(scope="function")
 def login_set_up(set_up):
     page = set_up
 
