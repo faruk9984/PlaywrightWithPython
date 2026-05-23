@@ -25,7 +25,7 @@ def login_set_up(set_up):
 
     page.locator("[data-test=\"username\"]").fill("standard_user")
     # page.locator("[data-test=\"password\"]").fill(utils.secret_config.PASSWORD, timeout=2000)
-    page.locator("[data-test=\"password\"]").fill(os.environ['PASSWORD'], timeout=2000)
+    page.locator("[data-test=\"password\"]").fill(os.getenv('PASSWORD'), timeout=2000)
     expect(page.locator('[data-test="login-button"]')).to_have_value("Login", timeout=2000)
     page.locator("[data-test=\"login-button\"]").click(timeout=3000)
     expect(page.locator(".app_logo")).to_have_text("Swag Labs")
