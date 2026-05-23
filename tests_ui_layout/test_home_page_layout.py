@@ -7,6 +7,16 @@ from pom.home_page_element import HomePage
 from pom.swag_element import SwagPage
 import pytest
 
+from utils.secret_config import PASSWORD
+
+try:
+    PASSWORD = os.environ['PASSWORD']
+except KeyError:
+        import utils.secret_config
+        PASSWORD = utils.secret_config.PASSWORD
+
+
+
 @pytest.mark.integration
 @pytest.mark.parametrize("username,password", [("standard_user", "secret_sauce"),
                                                pytest.param("locked_out_user", "secret_sauce", marks=pytest.mark.xfail),
@@ -21,7 +31,7 @@ def test_about_us_scrtion_verbiage(set_up, username, password) -> None:
     home_page=HomePage(page)
     home_page.username.fill(username)
     # home_page.password.fill(utils.secret_config.PASSWORD)
-    home_page.password.fill(os.getenv('PASSWORD'))
+    home_page.password.fill(PASSWORD)
     home_page.login_button.click(timeout=1000)
     expect(home_page.text_verify).to_be_visible()
 
@@ -56,7 +66,7 @@ def test_about_us_scrtion_verbiage2(set_up, username, password)-> None:
     home_page = HomePage(page)
     home_page.username.fill(username)
     # home_page.password.fill(utils.secret_config.PASSWORD)
-    home_page.password.fill(os.getenv('PASSWORD'))
+    home_page.password.fill(PASSWORD)
     home_page.login_button.click(timeout=1000)
     expect(home_page.text_verify).to_be_visible()
 
