@@ -16,5 +16,14 @@ def test_login_demo(login_set_up) -> None:
 @pytest.mark.smoke2
 def test_login_demo_2(login_set_up) -> None:
     page = login_set_up
-    # expect(page.locator("div.login_logo")).to_have_text("Swag Labs")
     print("Home page load Successfull")
+
+
+
+
+
+
+
+@pytest.mark.smoke3
+def test_login_demo_3(login_set_up2) -> None:
+    page = login_set_up2

@@ -1,0 +1,17 @@
+{
+  "steps": [
+    {
+      "startTime": 1779475377298,
+      "endTime": 1779475383239,
+      "name": "Setup",
+      "status": "FAILED",
+      "events": [],
+      "failureMessage": "KeyError: 'PASSWORD'",
+      "stackTrace": "fixturedef = <FixtureDef argname='login_set_up' scope='session' baseid=''>, request = <SubRequest 'login_set_up' for <Function test_login_demo_2[chromium]>>\n\n    @pytest.hookimpl(wrapper=True)\n    def pytest_fixture_setup(fixturedef: FixtureDef, request) -> object | None:\n        asyncio_mode = _get_asyncio_mode(request.config)\n        if not _is_asyncio_fixture_function(fixturedef.func):\n            if asyncio_mode == Mode.STRICT:\n                # Ignore async fixtures without explicit asyncio mark in strict mode\n                # This applies to pytest_trio fixtures, for example\n>               return (yield)\n                        ^^^^^\n\n.venv\\Lib\\site-packages\\pytest_asyncio\\plugin.py:728: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\n\nset_up = <Page url='https://www.saucedemo.com/'>\n\n    @pytest.fixture(scope=\"session\")\n    # @pytest.fixture(scope=\"function\")\n    def login_set_up(set_up):\n        page = set_up\n    \n        page.locator(\"[data-test=\\\"username\\\"]\").fill(\"standard_user\")\n        # page.locator(\"[data-test=\\\"password\\\"]\").fill(utils.secret_config.PASSWORD, timeout=2000)\n>       page.locator(\"[data-test=\\\"password\\\"]\").fill(os.environ['PASSWORD'], timeout=2000)\n                                                      ^^^^^^^^^^^^^^^^^^^^^^\nE       KeyError: 'PASSWORD'\n\nconftest.py:28: KeyError"
+    }
+  ],
+  "testStatus": "ERROR",
+  "className": "tests_ui_layout.test_2",
+  "failureMessage": "KeyError: 'PASSWORD'",
+  "stackTrace": "fixturedef = <FixtureDef argname='login_set_up' scope='session' baseid=''>, request = <SubRequest 'login_set_up' for <Function test_login_demo_2[chromium]>>\n\n    @pytest.hookimpl(wrapper=True)\n    def pytest_fixture_setup(fixturedef: FixtureDef, request) -> object | None:\n        asyncio_mode = _get_asyncio_mode(request.config)\n        if not _is_asyncio_fixture_function(fixturedef.func):\n            if asyncio_mode == Mode.STRICT:\n                # Ignore async fixtures without explicit asyncio mark in strict mode\n                # This applies to pytest_trio fixtures, for example\n>               return (yield)\n                        ^^^^^\n\n.venv\\Lib\\site-packages\\pytest_asyncio\\plugin.py:728: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\n\nset_up = <Page url='https://www.saucedemo.com/'>\n\n    @pytest.fixture(scope=\"session\")\n    # @pytest.fixture(scope=\"function\")\n    def login_set_up(set_up):\n        page = set_up\n    \n        page.locator(\"[data-test=\\\"username\\\"]\").fill(\"standard_user\")\n        # page.locator(\"[data-test=\\\"password\\\"]\").fill(utils.secret_config.PASSWORD, timeout=2000)\n>       page.locator(\"[data-test=\\\"password\\\"]\").fill(os.environ['PASSWORD'], timeout=2000)\n                                                      ^^^^^^^^^^^^^^^^^^^^^^\nE       KeyError: 'PASSWORD'\n\nconftest.py:28: KeyError"
+}
